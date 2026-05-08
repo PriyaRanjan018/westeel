@@ -49,13 +49,24 @@
     <!-- Theme color -->
     <meta name="theme-color" content="#0a2244" />
 
-    <!-- Fonts — Preconnect for performance -->
+    <!-- Preload LCP hero image — tells browser to fetch it before JS runs -->
+    <link rel="preload" as="image" href="/landing_image.webp" fetchpriority="high" />
+
+    <!-- Fonts — non-render-blocking async load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- JSON-LD Structured Data — LocalBusiness -->
     <script type="application/ld+json">

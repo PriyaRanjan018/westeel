@@ -44,14 +44,33 @@ export function useSecurity() {
       }
     };
 
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keyup', handleKeyUp);
+    function attach() {
+      document.addEventListener('contextmenu', handleContextMenu);
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('keyup', handleKeyUp);
+    }
 
-    return () => {
+    function detach() {
       document.removeEventListener('contextmenu', handleContextMenu);
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
+    }
+
+    // Re-attach listeners when page is restored from bfcache
+    // (persisted=true means the page was served from bfcache, not a fresh load)
+    function handlePageShow(e) {
+      if (e.persisted) {
+        detach(); // avoid duplicate listeners
+        attach();
+      }
+    }
+
+    attach();
+    window.addEventListener('pageshow', handlePageShow);
+
+    return () => {
+      detach();
+      window.removeEventListener('pageshow', handlePageShow);
     };
   }, []);
 }
