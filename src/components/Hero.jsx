@@ -98,9 +98,8 @@ export default function Hero() {
             <img
               key={slide}
               alt="Westeel steel building project"
-              className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1600ms] ease-out ${
-                index === activeSlide ? "opacity-100" : "opacity-0"
-              }`}
+              className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1600ms] ease-out ${index === activeSlide ? "opacity-100" : "opacity-0"
+                }`}
               decoding="async"
               fetchPriority={index === 0 ? "high" : "low"}
               height="1080"
@@ -112,7 +111,7 @@ export default function Hero() {
             />
           ))}
         </div>
-        <div className="absolute inset-0 bg-[rgba(17,14,12,0.42)]" />
+        <div className="absolute inset-0 bg-[rgba(17,14,12,0.0)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,13,11,0.68)_0%,rgba(24,19,15,0.56)_35%,rgba(20,17,14,0.48)_68%,rgba(12,10,9,0.72)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(226,139,23,0.18),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(120,128,138,0.12),_transparent_28%)]" />
       </div>
@@ -191,11 +190,10 @@ export default function Hero() {
               <button
                 key={`${slide}-dot`}
                 aria-label={`Show slide ${index + 1}`}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  isActive
+                className={`h-2.5 rounded-full transition-all duration-300 ${isActive
                     ? "w-10 bg-[var(--color-brand-gold)]"
                     : "w-2.5 bg-white/45 hover:bg-white/75"
-                }`}
+                  }`}
                 onClick={() => setActiveSlide(index)}
                 type="button"
               />
