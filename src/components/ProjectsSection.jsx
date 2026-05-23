@@ -102,7 +102,7 @@ const projects = [
     category: "civil",
     image: "/projects/civil1.jpg",
     stage: "Site preparation and base works",
-    detail: "Coordinated groundwork package",
+    detail: "Bargarh, Odisha",
   },
   {
     title: "Core Civil Progress",
@@ -341,9 +341,7 @@ export default function ProjectsSection() {
                       {activeCategoryData.label}
                     </p>
                   </div>
-                  <span className="text-4xl font-black tracking-[-0.08em] text-[var(--color-brand-gold)]">
-                    {String(visibleProjects.length).padStart(2, "0")}
-                  </span>
+
                 </div>
 
                 <p className="mt-5 max-w-[30ch] text-sm leading-7 text-[rgba(238,244,250,0.74)] sm:text-[0.98rem]">
